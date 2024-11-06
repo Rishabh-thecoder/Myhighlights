@@ -20,17 +20,17 @@ const DataDisplay = () => {
       }) 
   }, [id]);
 
-  // const isDevice = {
-  //   Android: () => navigator.userAgent.includes('Android'),
-  //   iOS: () => /iPhone|iPad|iPod/.test(navigator.userAgent),
-  // };
+  const isDevice = {
+    Android: () => navigator.userAgent.includes('Android'),
+    iOS: () => /iPhone|iPad|iPod/.test(navigator.userAgent),
+  };
 
-  // const appDownload = () => {
-  //   const url = isDevice.Android()
-  //     ? 'https://mobile.pokerbaazi.com/sources/PokerBaazi.apk'
-  //     : 'https://apps.apple.com/in/app/pokerbaazi-online-poker/id1369524104';
-  //   window.open(url, '_self');
-  // };
+  const appDownload = () => {
+    const url = isDevice.Android()
+      ? 'https://mobile.pokerbaazi.com/sources/PokerBaazi.apk'
+      : 'https://apps.apple.com/in/app/pokerbaazi-online-poker/id1369524104';
+    window.open(url, '_self');
+  };
 
 
   if (loading) return (
@@ -86,9 +86,9 @@ const DataDisplay = () => {
           </div>
         )}
       </div>
-      {/* <div className='download-btn-box'>
+      <div className='download-btn-box'>
         <button className='blue-btn' onClick={appDownload}>Download The App Now</button>
-      </div> */}
+      </div>
     </div>
   );
 };
