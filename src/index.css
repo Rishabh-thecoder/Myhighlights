@@ -1,13 +1,232 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  background: #16182B;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.darkblue-bg
+{
+  background: #16182B;
+}
+.black-screen {
+  color: #fff;
+  background: #16182B;
+  width: 100%;
+  height: 100vh; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+.mainbox
+{
+  text-align: center; 
+  color: #fff;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.maintxt{
+  padding:0 10px;
+  font-size: 16px;
+}
+.subtxt
+{
+  font-size:12px ;
+  margin: 0;
+  padding: 6px 0;
+}
+.video-box
+{
+  margin-top: 10px;
+    position: relative;
+}
+.v-prop
+{
+  width: 90%;
+  position: relative;
+  height: auto;
+  border-radius: 25px;  
+}
+.btn-mute-box
+{
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 150px;
+}
+.btn-toggle-play-box
+{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 150px;
+}
+.mute-btn , .btn-toggle-play
+{
+
+  padding: 12px 22px 12px 12px;
+  max-width: 328px;
+  width: 100%;
+  font-size: 18px !important;
+  background-color: transparent;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+}
+.cus-flexbox
+{
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 15px 0 5px 0;
+}
+
+.blue-btn
+{
+    padding: 14px;
+    width: 90%;
+    font-size: 16px;
+    margin: 10px;
+    color: #fff;
+    background-color: #208ef7;
+    border: 1px solid #208ef7;
+    border-radius: 10px;
+}
+
+.custom-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.download-btn-box
+{
+   background: #16182B;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 8px 0;
+    border: 0;
+}
+
+.play-btn, .mute-btn {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.replay-btn {
+  margin-top: 10px;
+  /* padding: 10px 20px; */
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  transform: translateY(-50%);
+  /* display: flex; */
+  /* width: 100px; */
+  /* justify-content: center; */
+
+}
+
+.replay-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* common */
+.loading {
+  font-size: 34px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  text-align: center;
+  span {
+    display: inline-block;
+  
+  }
+}
+
+
+.loading03 span {
+
+  animation: loading03 0.7s infinite alternate;
+}
+
+
+.loading03 span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loading03 span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loading03 span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.loading03 span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.loading03 span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+.loading03 span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+.loading03 span:nth-child(8) {
+  animation-delay: 0.7s;
+}
+.loading03 span:nth-child(9) {
+  animation-delay: 0.8s;
+}
+
+@keyframes loading03 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .video-box {
+    margin-top: 10px;
+    position: relative;
+    margin-bottom: 80px;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
