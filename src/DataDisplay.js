@@ -6,32 +6,17 @@ const DataDisplay = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
   const [isVideoEnded, setIsVideoEnded] = useState(false);
 
   useEffect(() => {
-    const fetchData = async () => {
-      console.log('Fetch started');
-      const startTime = performance.now(); // Start timing the fetch
-
-      try {
-        // Using axios to fetch data
-        const response = await axios.get(`https://poker-tv-qa.alphabetabox.com/api/videos/${id}`);
+    console.log('Fetch started');
+    axios.get(`https://poker-tv-qa.alphabetabox.com/api/videos/${id}`)
+      .then(response => {
         console.log('Fetch response received:', response);
-
-        setData(response.data); // `response.data` contains the parsed JSON
-      } catch (err) {
-        setError(err.message);
-        console.error('Fetch error:', err.message);
-      } finally {
-        const endTime = performance.now(); // End timing the fetch
-        console.log(`Fetch completed in ${endTime - startTime} ms`);
+        setData(response.data); 
         setLoading(false);
-      }
-    };
-
-    fetchData();
-
+      })
+     
     document.body.classList.add('darkblue-bg');
     return () => {
       document.body.classList.remove('darkblue-bg');
@@ -50,22 +35,28 @@ const DataDisplay = () => {
     window.open(url, '_self');
   };
 
-  if (loading) return <div className='black-screen'><section>
-  <div className="loading loading03">
-    <span>L</span>
-    <span>O</span>
-    <span>A</span>
-    <span>D</span>
-    <span>I</span>
-    <span>N</span>
-    <span>G</span>
-    <span>.</span>
-    <span>.</span>
-    <span>.</span>
-  </div>
-</section><div className='skeleton'></div></div>;
 
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return (
+    <div className='black-screen'>
+      <section>
+        <div className="loading loading03">
+          <span>L</span>
+          <span>O</span>
+          <span>A</span>
+          <span>D</span>
+          <span>I</span>
+          <span>N</span>
+          <span>G</span>
+          <span>.</span>
+          <span>.</span>
+          <span>.</span>
+        </div>
+      </section>
+      <div className='skeleton'></div>
+    </div>
+  );
+
+  if (!data) return <div>No data available.</div>;
 
   return (
     <div className='mainbox'>
@@ -84,14 +75,19 @@ const DataDisplay = () => {
             controls 
             muted 
             onEnded={() => setIsVideoEnded(true)} 
-            style={{aspectRatio:"0.5625/1"}}
+            style={{ aspectRatio: "0.5625/1" }}
           >
             <source src={data.url_en} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         ) : (
           <div>
-            <img  style={{aspectRatio:"0.5625/1"}} className='v-prop' src={data.thumbnail_hi.url} alt="Video Thumbnail" />
+            <img 
+              style={{ aspectRatio: "0.5625/1" }} 
+              className='v-prop' 
+              src={data.thumbnail_hi.url} 
+              alt="Video Thumbnail" 
+            />
             <button onClick={() => setIsVideoEnded(false)} className='replay-btn'>
               <img width={90} src={require("./images/play-btn.png")} alt='play button'/>
             </button>
@@ -99,7 +95,7 @@ const DataDisplay = () => {
         )}
       </div>
       <div className='download-btn-box'>
-         <button className='blue-btn' onClick={appDownload}>Download The App Now</button>
+        <button className='blue-btn' onClick={appDownload}>Download The App Now</button>
       </div>
     </div>
   );
