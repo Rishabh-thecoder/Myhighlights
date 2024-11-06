@@ -49,6 +49,7 @@ code {
   position: relative;
   height: auto;
   border-radius: 25px;  
+  aspect-ratio: 0.5625/1;
 }
 .btn-mute-box
 {

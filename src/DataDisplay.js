@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios'; // Import axios
+import axios from 'axios';
 
 const DataDisplay = () => {
+  document.body.classList.add('darkblue-bg');
+
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -15,25 +17,20 @@ const DataDisplay = () => {
         console.log('Fetch response received:', response);
         setData(response.data); 
         setLoading(false);
-      })
-     
-    document.body.classList.add('darkblue-bg');
-    return () => {
-      document.body.classList.remove('darkblue-bg');
-    };
+      }) 
   }, [id]);
 
-  const isDevice = {
-    Android: () => navigator.userAgent.includes('Android'),
-    iOS: () => /iPhone|iPad|iPod/.test(navigator.userAgent),
-  };
+  // const isDevice = {
+  //   Android: () => navigator.userAgent.includes('Android'),
+  //   iOS: () => /iPhone|iPad|iPod/.test(navigator.userAgent),
+  // };
 
-  const appDownload = () => {
-    const url = isDevice.Android()
-      ? 'https://mobile.pokerbaazi.com/sources/PokerBaazi.apk'
-      : 'https://apps.apple.com/in/app/pokerbaazi-online-poker/id1369524104';
-    window.open(url, '_self');
-  };
+  // const appDownload = () => {
+  //   const url = isDevice.Android()
+  //     ? 'https://mobile.pokerbaazi.com/sources/PokerBaazi.apk'
+  //     : 'https://apps.apple.com/in/app/pokerbaazi-online-poker/id1369524104';
+  //   window.open(url, '_self');
+  // };
 
 
   if (loading) return (
@@ -52,11 +49,8 @@ const DataDisplay = () => {
           <span>.</span>
         </div>
       </section>
-      <div className='skeleton'></div>
     </div>
   );
-
-  if (!data) return <div>No data available.</div>;
 
   return (
     <div className='mainbox'>
@@ -75,7 +69,6 @@ const DataDisplay = () => {
             controls 
             muted 
             onEnded={() => setIsVideoEnded(true)} 
-            style={{ aspectRatio: "0.5625/1" }}
           >
             <source src={data.url_en} type="video/mp4" />
             Your browser does not support the video tag.
@@ -83,7 +76,6 @@ const DataDisplay = () => {
         ) : (
           <div>
             <img 
-              style={{ aspectRatio: "0.5625/1" }} 
               className='v-prop' 
               src={data.thumbnail_hi.url} 
               alt="Video Thumbnail" 
@@ -94,9 +86,9 @@ const DataDisplay = () => {
           </div>
         )}
       </div>
-      <div className='download-btn-box'>
+      {/* <div className='download-btn-box'>
         <button className='blue-btn' onClick={appDownload}>Download The App Now</button>
-      </div>
+      </div> */}
     </div>
   );
 };
