@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter , Route, Routes } from 'react-router-dom';
 import DataDisplay from './DataDisplay';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+
 
 function App() {
   return (

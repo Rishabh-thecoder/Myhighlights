@@ -211,13 +211,51 @@ code {
   }
 }
 
-@media screen and (max-width: 375px) {
-  .video-box {
-    margin-top: 10px;
-    position: relative;
-    margin-bottom: 80px;
+@media screen and (min-width: 768px) {
+  body
+  {
+/* 
+    background: url("./images/gomobile-bg1.webp") !important;
+    background-size: contain !important;
+    background-position: center !important;
+    background-repeat: no-repeat; */
+    background: #16182B url("./images/gomobile-bg1.webp") no-repeat center center !important;
+  }
+
+  .video-box
+  {
+    margin: 10px;
+      position: relative;
+  }
+  .v-prop
+{
+        width: 50%;
+        border-radius: 25px;
+        aspect-ratio: 0.5625 / 1;
+        justify-content: center;
+        display: flex;
+        margin: 15px auto;
 }
+
+.maintxt{
+  padding:0 10px;
+  font-size: 40px;
+  color: #fff;
 }
+.subtxt
+{
+  font-size:20px ;
+  margin: 0;
+  padding: 6px 0;
+  color: #fff;
+  text-align: center;
+}
+
+
+ 
+}
+
+
 
 
 
