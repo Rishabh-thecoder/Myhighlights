@@ -116,11 +116,9 @@ const DataDisplay = () => {
         </div>
       </div>
       <div className="d-none d-md-block d-lg-block">
-        <div class="d-flex justify-content-end align-items-center" style={{height:"100vh", padding:"20px"}}>
-          <div class=" text-center" >
-            <img src={require("./images/shahid.webp")} alt="shahid" className="img-fluid" width={400}/>
-            <div style={{padding:"15px", backgroundColor:"#16182B", borderRadius:"20px"}}>
-            <div className="cus-flexbox">
+        <div className="parent">
+        <div className="child child-40">
+        <div className="cus-flexbox">
               <img
                 src={require("./images/left-line.png")}
                 width={40}
@@ -145,7 +143,7 @@ const DataDisplay = () => {
             >
               <button
                 type="button"
-                class="btn btn-danger"
+                className="btn btn-danger"
                 style={{ borderRadius: "20px" }}
               >
                 <img src={macosimg} style={{ paddingRight: "10px" }} alt="dd" />
@@ -161,7 +159,7 @@ const DataDisplay = () => {
             >
               <button
                 type="button"
-                class="btn btn-danger"
+                className="btn btn-danger"
                 style={{ borderRadius: "20px" }}
               >
                 <img
@@ -172,9 +170,8 @@ const DataDisplay = () => {
                 WINDOWS
               </button>
             </a>
-            </div>
-          </div>
-          <div class=" " style={{ width: "60%" }}>
+        </div>
+        <div className="child child-60">
             <div className="video-box">
               {!isVideoEnded ? (
                 <video
@@ -208,9 +205,10 @@ const DataDisplay = () => {
                 </div>
               )}
             </div>
-          </div>
-
         </div>
+      </div>
+
+
       </div>
     </>
   );

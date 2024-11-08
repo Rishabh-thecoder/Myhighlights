@@ -216,10 +216,11 @@ code {
   {
 /* 
     background: url("./images/gomobile-bg1.webp") !important;
-    background-size: contain !important;
+    
     background-position: center !important;
     background-repeat: no-repeat; */
-    background: #16182B url("./images/gomobile-bg1.webp") no-repeat center center !important;
+    background: url("./images/gomobile-bg1.webp") no-repeat !important;
+    background-size: cover !important;
   }
 
   .video-box
@@ -229,7 +230,6 @@ code {
   }
   .v-prop
 {
-        width: 50%;
         border-radius: 25px;
         aspect-ratio: 0.5625 / 1;
         justify-content: center;
@@ -255,7 +255,32 @@ code {
  
 }
 
+/* Parent div */
+.parent {
+  display: flex;
+  justify-content: center; /* Horizontally centers the children */
+  align-items: center;     /* Vertically centers the children */
+  text-align: center;
+  height: 100vh;
+}
 
+
+
+.child-40 {
+  width: 40%; /* First child takes up 40% of the width */
+
+}
+
+.child-60 {
+  width: 34%; /* Second child takes up 60% of the width */
+}
+
+@media screen and (max-width: 376px) {
+  .video-box
+  {
+    margin-bottom: 100px;
+  }
+}
 
 
 
