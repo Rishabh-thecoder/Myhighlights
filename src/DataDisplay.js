@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import macosimg from "./images/gomobile-macVector.svg";
-import windowimg from "./images/gomobile-bx_bxl-windows.svg";
 
 const DataDisplay = () => {
   document.body.classList.add("darkblue-bg");
@@ -29,11 +27,24 @@ const DataDisplay = () => {
   };
 
   const appDownload = () => {
-    const url = isDevice.Android()
-      ? "https://mobile.pokerbaazi.com/sources/PokerBaazi.apk"
-      : "https://apps.apple.com/in/app/pokerbaazi-online-poker/id1369524104";
-    window.open(url, "_self");
-  };
+    // Check if it's a mobile device or desktop
+    const isMobile = /android|iphone|ipod|ipad/i.test(navigator.userAgent);
+  
+    // Android and iOS download links
+    if (isMobile) {
+        const url = isDevice.Android()
+          ? "https://mobile.pokerbaazi.com/sources/PokerBaazi.apk"
+          : "https://apps.apple.com/in/app/pokerbaazi-online-poker/id1369524104";
+        window.open(url, "_self");
+    } else {
+        // Desktop download links for MacOS and Windows
+        const isMacOS = navigator.platform.indexOf('Mac') !== -1;
+        const url = isMacOS
+          ? "https://desktop.pokerbaazi.com/sources/PokerBaazi.dmg"
+          : "https://desktop.pokerbaazi.com/sources/PokerBaazi-release.exe";
+        window.open(url, "_self");
+    }
+};
 
   if (loading)
     return (
@@ -57,7 +68,7 @@ const DataDisplay = () => {
 
   return (
     <>
-      <div className="d-md-none d-lg-none d-block">
+      <div className="d-lg-none d-block">
         <div className="mainbox">
           <div className="cus-flexbox">
             <img
@@ -115,7 +126,7 @@ const DataDisplay = () => {
           </div>
         </div>
       </div>
-      <div className="d-none d-md-block d-lg-block">
+      <div className="d-none d-lg-block">
         <div className="parent">
         <div className="child child-40">
         <div className="cus-flexbox">
@@ -135,41 +146,7 @@ const DataDisplay = () => {
             <p className="subtxt" style={{paddingBottom:"15px"}}>
               Check out this winning hand played by your friend.
             </p>
-            {/* <p className='subtxt'>Download the Pokerbaazi MacOS App</p> */}
-            <a style={{marginRight:"20px"}}
-              href="https://desktop.pokerbaazi.com/sources/PokerBaazi.dmg"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <button
-                type="button"
-                className="btn btn-danger"
-                style={{ borderRadius: "20px" }}
-              >
-                <img src={macosimg} style={{ paddingRight: "10px" }} alt="dd" />
-                MAC OS
-              </button>
-            </a>
-
-            {/* <p className='subtxt'>Download the Pokerbaazi Windows App</p> */}
-            <a
-              href="https://desktop.pokerbaazi.com/sources/PokerBaazi-release.exe"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <button
-                type="button"
-                className="btn btn-danger"
-                style={{ borderRadius: "20px" }}
-              >
-                <img
-                  src={windowimg}
-                  style={{ paddingRight: "10px" }}
-                  alt="dd"
-                />
-                WINDOWS
-              </button>
-            </a>
+            
         </div>
         <div className="child child-60">
             <div className="video-box">
@@ -206,6 +183,20 @@ const DataDisplay = () => {
               )}
             </div>
         </div>
+      </div>
+      <div className="foot-ctr">
+         <p className='subtxt' style={{display:"inline-block", paddingRight:"15px"}}>Download the Pokerbaazi App</p>
+        
+              <button onClick={appDownload}
+                type="button"
+                className="btn btn-danger"
+                style={{ borderRadius: "20px", fontSize:"12px", display:"inline-block" }}
+              >
+                DOWNLOAD NOW
+              </button>
+           
+
+           
       </div>
 
 

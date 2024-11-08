@@ -151,7 +151,7 @@ code {
 }
 
 .replay-btn:hover {
-  background-color: #0056b3; /* Darker shade on hover */
+  background-color: transparent; 
 }
 
 /* common */
@@ -211,7 +211,7 @@ code {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media (min-width:992px) {
   body
   {
 /* 
@@ -244,11 +244,11 @@ code {
 }
 .subtxt
 {
-  font-size:20px ;
+  font-size:16px ;
   margin: 0;
   padding: 6px 0;
   color: #fff;
-  text-align: center;
+ 
 }
 
 
@@ -267,12 +267,39 @@ code {
 
 
 .child-40 {
-  width: 40%; /* First child takes up 40% of the width */
+  width: 28%; /* First child takes up 40% of the width */
 
 }
 
 .child-60 {
-  width: 34%; /* Second child takes up 60% of the width */
+  width: 31%; /* Second child takes up 60% of the width */
+}
+.foot-ctr
+{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #16182B;
+  width: 100%;
+  padding:10px 20px;
+  text-align: center;
+}
+
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+  .maintxt {
+    padding: 0 10px;
+    font-size: 40px;
+}
+.subtxt
+{
+  font-size: 24px;
+}
+  .video-box
+  {
+    margin-bottom: 100px;
+  }
 }
 
 @media screen and (max-width: 376px) {
