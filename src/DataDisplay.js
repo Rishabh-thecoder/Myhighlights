@@ -29,22 +29,22 @@ const DataDisplay = () => {
   const appDownload = () => {
     // Check if it's a mobile device or desktop
     const isMobile = /android|iphone|ipod|ipad/i.test(navigator.userAgent);
-  
+
     // Android and iOS download links
     if (isMobile) {
-        const url = isDevice.Android()
-          ? "https://mobile.pokerbaazi.com/sources/PokerBaazi.apk"
-          : "https://apps.apple.com/in/app/pokerbaazi-online-poker/id1369524104";
-        window.open(url, "_self");
+      const url = isDevice.Android()
+        ? "https://mobile.pokerbaazi.com/sources/PokerBaazi.apk"
+        : "https://apps.apple.com/in/app/pokerbaazi-online-poker/id1369524104";
+      window.open(url, "_self");
     } else {
-        // Desktop download links for MacOS and Windows
-        const isMacOS = navigator.platform.indexOf('Mac') !== -1;
-        const url = isMacOS
-          ? "https://desktop.pokerbaazi.com/sources/PokerBaazi.dmg"
-          : "https://desktop.pokerbaazi.com/sources/PokerBaazi-release.exe";
-        window.open(url, "_self");
+      // Desktop download links for MacOS and Windows
+      const isMacOS = navigator.platform.indexOf("Mac") !== -1;
+      const url = isMacOS
+        ? "https://desktop.pokerbaazi.com/sources/PokerBaazi.dmg"
+        : "https://desktop.pokerbaazi.com/sources/PokerBaazi-release.exe";
+      window.open(url, "_self");
     }
-};
+  };
 
   if (loading)
     return (
@@ -68,7 +68,7 @@ const DataDisplay = () => {
 
   return (
     <>
-      <div className="d-lg-none d-block">
+      <div className="mob-show">
         <div className="mainbox">
           <div className="cus-flexbox">
             <img
@@ -86,7 +86,7 @@ const DataDisplay = () => {
           <p className="subtxt">
             Check out this winning hand played by your friend.
           </p>
-          <div className="video-box">
+          {/* <div className="video-box">
             {!isVideoEnded ? (
               <video
                 id="myVideo"
@@ -105,6 +105,7 @@ const DataDisplay = () => {
                   className="v-prop"
                   src={data.thumbnail_hi.url}
                   alt="Video Thumbnail"
+                  style={{aspectRatio:"9/16"}}
                 />
                 <button
                   onClick={() => setIsVideoEnded(false)}
@@ -118,7 +119,47 @@ const DataDisplay = () => {
                 </button>
               </div>
             )}
+          </div> */}
+          <div className="video-box">
+            <div className="video-container">
+              {/* Video element */}
+              {!isVideoEnded ? (
+                <video
+                  id="myVideo"
+                  className="v-prop video v-abs"
+                  autoPlay
+                  controls
+                  muted
+                  onEnded={() => setIsVideoEnded(true)}
+                >
+                  <source src={data.url_en} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : null}
+
+              {/* Thumbnail Image */}
+              <img
+                className="v-prop thumbnail"
+                src={data.thumbnail_hi.url}
+                alt="Video Thumbnail"
+              />
+
+              {/* Play Button */}
+              {isVideoEnded && (
+                <button
+                  onClick={() => setIsVideoEnded(false)}
+                  className="replay-btn"
+                >
+                  <img
+                    width={90}
+                    src={require("./images/play-btn.png")}
+                    alt="play button"
+                  />
+                </button>
+              )}
+            </div>
           </div>
+
           <div className="download-btn-box">
             <button className="blue-btn" onClick={appDownload}>
               Download The App Now
@@ -126,10 +167,10 @@ const DataDisplay = () => {
           </div>
         </div>
       </div>
-      <div className="d-none d-lg-block">
+      <div className="mob-hide">
         <div className="parent">
-        <div className="child child-40">
-        <div className="cus-flexbox">
+          <div className="child child-40">
+            <div className="cus-flexbox">
               <img
                 src={require("./images/left-line.png")}
                 width={40}
@@ -143,32 +184,37 @@ const DataDisplay = () => {
                 alt="right line"
               />
             </div>
-            <p className="subtxt" style={{paddingBottom:"15px"}}>
+            <p className="subtxt" style={{ paddingBottom: "15px" }}>
               Check out this winning hand played by your friend.
             </p>
-            
-        </div>
-        <div className="child child-60">
+          </div>
+          <div className="child child-60">
             <div className="video-box">
-              {!isVideoEnded ? (
-                <video
-                  id="myVideo"
-                  className="v-prop"
-                  autoPlay
-                  controls
-                  muted
-                  onEnded={() => setIsVideoEnded(true)}
-                >
-                  <source src={data.url_en} type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-              ) : (
-                <div>
-                  <img
-                    className="v-prop"
-                    src={data.thumbnail_hi.url}
-                    alt="Video Thumbnail"
-                  />
+              <div className="video-container">
+                {/* Video element */}
+                {!isVideoEnded ? (
+                  <video
+                    id="myVideo"
+                    className="v-prop video v-abs"
+                    autoPlay
+                    controls
+                    muted
+                    onEnded={() => setIsVideoEnded(true)}
+                  >
+                    <source src={data.url_en} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                ) : null}
+
+                {/* Thumbnail Image */}
+                <img
+                  className="v-prop thumbnail"
+                  src={data.thumbnail_hi.url}
+                  alt="Video Thumbnail"
+                />
+
+                {/* Play Button */}
+                {isVideoEnded && (
                   <button
                     onClick={() => setIsVideoEnded(false)}
                     className="replay-btn"
@@ -179,27 +225,32 @@ const DataDisplay = () => {
                       alt="play button"
                     />
                   </button>
-                </div>
-              )}
+                )}
+              </div>
             </div>
+          </div>
         </div>
-      </div>
-      <div className="foot-ctr">
-         <p className='subtxt' style={{display:"inline-block", paddingRight:"15px"}}>Download the Pokerbaazi App</p>
-        
-              <button onClick={appDownload}
-                type="button"
-                className="btn btn-danger"
-                style={{ borderRadius: "20px", fontSize:"12px", display:"inline-block" }}
-              >
-                DOWNLOAD NOW
-              </button>
-           
+        <div className="foot-ctr">
+          <p
+            className="subtxt"
+            style={{ display: "inline-block", paddingRight: "15px" }}
+          >
+            Download the Pokerbaazi Desktop App
+          </p>
 
-           
-      </div>
-
-
+          <button
+            onClick={appDownload}
+            type="button"
+            className="btn btn-danger"
+            style={{
+              borderRadius: "20px",
+              fontSize: "12px",
+              display: "inline-block",
+            }}
+          >
+            DOWNLOAD NOW
+          </button>
+        </div>
       </div>
     </>
   );

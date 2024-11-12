@@ -121,6 +121,7 @@ code {
     right: 0;
     padding: 8px 0;
     border: 0;
+    z-index: 111;
 }
 
 .play-btn, .mute-btn {
@@ -211,7 +212,36 @@ code {
   }
 }
 
+.v-abs
+{
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: 11;
+}
+.mob-show
+{
+  display: block;
+}
+.mob-hide
+{
+  display: none;
+}
+/* @media (min-width: 1024px) and (max-width: 1366px) and (orientation: portrait) {
+  
+
+} */
+
 @media (min-width:992px) {
+  .mob-show
+{
+  display: none;
+}
+.mob-hide
+{
+  display: block;
+}
   body
   {
 /* 
@@ -272,7 +302,7 @@ code {
 }
 
 .child-60 {
-  width: 31%; /* Second child takes up 60% of the width */
+  width: 27%; /* Second child takes up 60% of the width */
 }
 .foot-ctr
 {
@@ -300,6 +330,40 @@ code {
   {
     margin-bottom: 100px;
   }
+}
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  .mob-show
+  {
+    display: block;
+  }
+  .mob-hide
+  {
+    display: none;
+  }
+  .darkblue-bg {
+    background: #16182B !important;
+}
+.maintxt {
+  font-size: 50px;
+}
+.subtxt {
+  font-size: 27px;
+}
+
+.download-btn-box {
+  padding: 26px 0;
+}
+
+.blue-btn {
+  padding: 20px;
+  font-size: 28px;
+
+}
+
+.mainbox {
+  max-width: 655px;
+}
+
 }
 
 @media screen and (max-width: 376px) {
