@@ -103,7 +103,7 @@ const DataDisplay = () => {
               <div>
                 <img
                   className="v-prop"
-                  src={data.thumbnail_hi.url}
+                  src={data.thumbnail_en.url}
                   alt="Video Thumbnail"
                   style={{aspectRatio:"9/16"}}
                 />
@@ -140,7 +140,7 @@ const DataDisplay = () => {
               {/* Thumbnail Image */}
               <img
                 className="v-prop thumbnail"
-                src={data.thumbnail_hi.url}
+                src={data.thumbnail_en.url}
                 alt="Video Thumbnail"
               />
 
@@ -209,7 +209,7 @@ const DataDisplay = () => {
                 {/* Thumbnail Image */}
                 <img
                   className="v-prop thumbnail"
-                  src={data.thumbnail_hi.url}
+                  src={data.thumbnail_en.url}
                   alt="Video Thumbnail"
                 />
 
