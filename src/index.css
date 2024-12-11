@@ -119,7 +119,7 @@ code {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 8px 0;
+    padding: 0px 0;
     border: 0;
     z-index: 111;
 }
@@ -223,6 +223,7 @@ code {
 .mob-show
 {
   display: block;
+  padding-bottom: 80px;
 }
 .mob-hide
 {
@@ -265,6 +266,7 @@ code {
         justify-content: center;
         display: flex;
         margin: 15px auto;
+        width: 84%;
 }
 
 .maintxt{
@@ -328,7 +330,7 @@ code {
 }
   .video-box
   {
-    margin-bottom: 100px;
+    margin-bottom: 130px;
   }
 }
 @media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
@@ -369,7 +371,10 @@ code {
 @media screen and (max-width: 376px) {
   .video-box
   {
-    margin-bottom: 100px;
+    margin-bottom: 130px;
+  }
+  .parent {
+    height: 100%;
   }
 }
 

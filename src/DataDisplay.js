@@ -86,40 +86,6 @@ const DataDisplay = () => {
           <p className="subtxt">
             Check out this winning hand played by your friend.
           </p>
-          {/* <div className="video-box">
-            {!isVideoEnded ? (
-              <video
-                id="myVideo"
-                className="v-prop"
-                autoPlay
-                controls
-                muted
-                onEnded={() => setIsVideoEnded(true)}
-              >
-                <source src={data.url_en} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            ) : (
-              <div>
-                <img
-                  className="v-prop"
-                  src={data.thumbnail_en.url}
-                  alt="Video Thumbnail"
-                  style={{aspectRatio:"9/16"}}
-                />
-                <button
-                  onClick={() => setIsVideoEnded(false)}
-                  className="replay-btn"
-                >
-                  <img
-                    width={90}
-                    src={require("./images/play-btn.png")}
-                    alt="play button"
-                  />
-                </button>
-              </div>
-            )}
-          </div> */}
           <div className="video-box">
             <div className="video-container">
               {/* Video element */}
